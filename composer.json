@@ -1,0 +1,13 @@
+{
+    "name": "regionhalland/region-halland-acf-page-contact-card",
+    "description": "Skapar post_typen kontakter, dvs contact card + visa dessa contact cards på en sida",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roland Hydén",
+            "email": "Roland.Hyden@Regionhalland.se"
+        }
+    ],
+    "require": {}
+}
