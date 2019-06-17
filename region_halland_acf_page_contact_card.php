@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Contact Card
 	Description: Skapar post_typen "kontakter", dvs "contact card" + visa dessa "contact cards" på en sida 
-	Version: 1.0.1
+	Version: 1.0.2
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -324,6 +324,8 @@
 
 					// Pusha data till temporär array
 			        array_push($myPosts, array(
+			           'post_title' => $postTitle,
+			           'post_content' => $postContent,
 			           'contact_name' => $contactName,
 			           'contact_epost' => $contactEpost,
 			           'contact_link_title' => $contactLinkTitle,

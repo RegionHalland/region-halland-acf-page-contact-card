@@ -58,6 +58,8 @@ OBS! Justera så att du hämtar aktuell version.
 @if(isset($myData))
   @foreach ($myData as $data)
     <span><a href="{{ $data['contact_link_url'] }}">{{ $data['contact_link_title'] }}</a></span><br>
+    <span>{!! $data['post_title'] !!}</span><br>
+    <span>{!! $data['post_content'] !!}</span><br>
     <span>{!! $data['contact_name'] !!}</span><br>
     <span>{{ $data['contact_epost'] }}</span><br>
     @if($data['contact_has_image'])
@@ -74,6 +76,8 @@ OBS! Justera så att du hämtar aktuell version.
 array (size=2)
   0 => 
     array (size=13)
+      'post_title' => string 'Min sida' (length=8)
+      'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Kalle Kula' (length=10)
       'contact_epost' => string 'Kalle.Kula@RegionHalland.se' (length=26)
       'contact_link_title' => string 'Fin bild framifrån' (length=18)
@@ -85,6 +89,8 @@ array (size=2)
       'contact_has_image' => int 1
   1 => 
     array (size=13)
+      'post_title' => string 'Min sida' (length=8)
+      'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Nisse Nilsson' (length=13)
       'contact_epost' => string 'Nisse.Nilsson@RegionHalland.se' (length=29)
       'contact_link_title' => string 'Fin bild' (length=8)
