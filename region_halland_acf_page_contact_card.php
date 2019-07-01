@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Contact Card
 	Description: Skapar post_typen "kontakter", dvs "contact card" + visa dessa "contact cards" på en sida 
-	Version: 1.0.2
+	Version: 1.1.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -282,6 +282,9 @@
 					// Hämta hela posten
 					$post = get_post($postID);
 
+					// Lägg till sidans url 	
+					$postUrl = get_permalink($post->ID);
+					
 					// Post title från posten
 					$postTitle = $post->post_title;
 					
@@ -324,8 +327,10 @@
 
 					// Pusha data till temporär array
 			        array_push($myPosts, array(
+			           'post_id' => $postID,
 			           'post_title' => $postTitle,
 			           'post_content' => $postContent,
+			           'post_url' => $postUrl,
 			           'contact_name' => $contactName,
 			           'contact_epost' => $contactEpost,
 			           'contact_link_title' => $contactLinkTitle,
@@ -375,7 +380,50 @@
 			
 	}
 
-	
+	// Returnera Namn
+	function get_region_halland_acf_page_contact_card_name($id) {
+		return get_field('name_1000168', $id);
+	}
+
+	// Returnera Epost
+	function get_region_halland_acf_page_contact_card_epost($id) {
+		return get_field('name_1000170', $id);
+	}
+
+	// Returnera Bild
+	function get_region_halland_acf_page_contact_card_image($id) {
+		$image_field_object = get_field('field_1000173', $id);
+		$myImage = array();
+		$myImage['image-url'] = $image_field_object['url'];
+		$myImage['image-width'] = $image_field_object['width'];
+		$myImage['image-height'] = $image_field_object['height'];
+		if ($myImage['image-url']) {
+			$myImage['has-image'] = 1;
+		} else {
+			$myImage['has-image'] = 0;
+		}
+		return $myImage;
+	}
+
+	// Returnera länk
+	function get_region_halland_acf_page_contact_card_link($id) {
+		$fieldLink = get_field_object('field_1000171', $id);
+		$isFieldLinkArray = is_array($fieldLink['value']);
+		$myLink = array();
+		if ($isFieldLinkArray) {
+			$myLink['link-title'] = $fieldLink['value']['title'];
+			$myLink['link-url'] = $fieldLink['value']['url'];
+			$myLink['link-target'] = $fieldLink['value']['target'];
+			$myLink['has-link'] = 1;
+		} else {
+			$myLink['link-title'] = "";
+			$myLink['link-title'] = "";
+			$myLink['link-target'] = "";
+			$myLink['has-link'] = 0;
+		}
+		return $myLink;
+	}
+		
 	// Metod som anropas när pluginen aktiveras
 	function region_halland_acf_page_contact_card_activate() {
 		

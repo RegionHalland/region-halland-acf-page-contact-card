@@ -76,6 +76,7 @@ OBS! Justera så att du hämtar aktuell version.
 array (size=2)
   0 => 
     array (size=13)
+      'post_id' => int 18
       'post_title' => string 'Min sida' (length=8)
       'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Kalle Kula' (length=10)
@@ -89,6 +90,7 @@ array (size=2)
       'contact_has_image' => int 1
   1 => 
     array (size=13)
+      'post_id' => int 22
       'post_title' => string 'Min sida' (length=8)
       'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Nisse Nilsson' (length=13)
@@ -102,7 +104,37 @@ array (size=2)
       'contact_has_image' => int 1
 ```
 
+
+## Lägg ut en enskild kontakt via "Blade"
+
+OBS! Ändra variabeln $id till det variabelnamn som du använder
+
+```sh
+Namn: {{get_region_halland_acf_page_contact_card_name($id)}}<br>
+Epost: {{get_region_halland_acf_page_contact_card_epost($id)}}<br>
+      
+@php($myLink = get_region_halland_acf_page_contact_card_link($id))
+@if($myLink['has-link'] == 1)
+  <a href="{{$myLink['link-url']}}" target="{{$myLink['link-target']}}">{{$myLink['link-title']}}</a><br>
+@endif
+
+@php($myImage = get_region_halland_acf_page_contact_card_image($id))
+@if($myImage['has-image'] == 1)
+  <img src="{{$myImage['image-url']}}" width="{{$myImage['image-width']}}" height="{{$myImage['image-height']}}">
+@endif
+```
+
+
 ## Versionhistorik
+
+### 1.2.0
+- Lagt till funktionalitet för en enskild kontakt
+
+### 1.0.2
+- Lagt till title + content
+
+### 1.0.1
+- Justerat standard-thumbh
 
 ### 1.0.0
 - Första version
