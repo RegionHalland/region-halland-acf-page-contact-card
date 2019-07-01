@@ -127,7 +127,7 @@ Epost: {{get_region_halland_acf_page_contact_card_epost($id)}}<br>
 
 ## Versionhistorik
 
-### 1.2.0
+### 1.1.0
 - Lagt till funktionalitet för en enskild kontakt
 
 ### 1.0.2
