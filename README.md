@@ -61,6 +61,7 @@ OBS! Justera så att du hämtar aktuell version.
     <span>{!! $data['post_title'] !!}</span><br>
     <span>{!! $data['post_content'] !!}</span><br>
     <span>{!! $data['contact_name'] !!}</span><br>
+    <span>{!! $data['contact_title'] !!}</span><br>
     <span>{{ $data['contact_epost'] }}</span><br>
     @if($data['contact_has_image'])
       <img src="{{ $data['contact_image_url'] }}" width="{{ $data['contact_image_width'] }}" height="{{ $data['contact_image_height'] }}"><br>
@@ -80,6 +81,7 @@ array (size=2)
       'post_title' => string 'Min sida' (length=8)
       'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Kalle Kula' (length=10)
+      'contact_title' => string 'IT-ansvarig' (length=11)
       'contact_epost' => string 'Kalle.Kula@RegionHalland.se' (length=26)
       'contact_link_title' => string 'Fin bild framifrån' (length=18)
       'contact_link_url' => string 'http://exempel.se/?show_profile=kallekula' (length=41)
@@ -94,6 +96,7 @@ array (size=2)
       'post_title' => string 'Min sida' (length=8)
       'post_content' => string 'Lorem ipsum' (length=11)
       'contact_name' => string 'Nisse Nilsson' (length=13)
+      'contact_title' => string 'IT-ansvarig' (length=11)
       'contact_epost' => string 'Nisse.Nilsson@RegionHalland.se' (length=29)
       'contact_link_title' => string 'Fin bild' (length=8)
       'contact_link_url' => string 'http://exempel.se/?show_profile=nissenilsson' (length=44)
@@ -111,6 +114,7 @@ OBS! Ändra variabeln $id till det variabelnamn som du använder
 
 ```sh
 Namn: {{get_region_halland_acf_page_contact_card_name($id)}}<br>
+Titel: {{get_region_halland_acf_page_contact_card_title($id)}}<br>
 Epost: {{get_region_halland_acf_page_contact_card_epost($id)}}<br>
       
 @php($myLink = get_region_halland_acf_page_contact_card_link($id))
@@ -126,6 +130,9 @@ Epost: {{get_region_halland_acf_page_contact_card_epost($id)}}<br>
 
 
 ## Versionhistorik
+
+### 1.2.0
+- Lagt till nytt fält, "Contact title"
 
 ### 1.1.0
 - Lagt till funktionalitet för en enskild kontakt
