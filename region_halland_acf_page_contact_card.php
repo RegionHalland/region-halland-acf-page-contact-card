@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Contact Card
 	Description: Skapar post_typen "kontakter", dvs "contact card" + visa dessa "contact cards" på en sida 
-	Version: 1.2.0
+	Version: 1.3.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -55,7 +55,7 @@
 		if (function_exists('acf_add_local_field_group')):
 
 			acf_add_local_field_group(array(
-			    'key' => 'group_1000115',
+			    'key' => 'group_1000211',
 			    'title' => 'Kontaktperson',
 			    'fields' => array(
 			        0 => array(
@@ -113,6 +113,24 @@
 			            'new_lines' => '',
 			        ),
 			        3 => array(
+			        	'key' => 'field_1000212',
+			            'label' => __('Telefon', 'regionhalland'),
+			            'name' => 'name_1000213',
+			            'type' => 'text',
+			            'instructions' => __('Ange telefonnummer. Max 80 tecken.', 'regionhalland'),
+			            'required' => 0,
+			            'conditional_logic' => 0,
+			            'wrapper' => array(
+			                'width' => '',
+			                'class' => '',
+			                'id' => '',
+			            ),
+			            'default_value' => '',
+			            'placeholder' => __('', 'regionhalland'),
+			            'maxlength' => 80,
+			            'new_lines' => '',
+			        ),
+			        4 => array(
 			        	'key' => 'field_1000171',
 					    'label' => 'Länk till mer info',
 					    'name' => 'name_1000172',
@@ -318,6 +336,9 @@
 					// Epost
 					$contactEpost = get_field('name_1000170', $postID);
 
+					// Telefon
+					$contactTelefon = get_field('name_1000213', $postID);
+
 					// Hämta ACF-objektet för link
 					$fieldLink 		= get_field_object('field_1000171', $postID);
 				
@@ -355,6 +376,7 @@
 			           'contact_name' => $contactName,
 			           'contact_title' => $contactTitle,
 			           'contact_epost' => $contactEpost,
+			           'contact_telefon' => $contactTelefon,
 			           'contact_link_title' => $contactLinkTitle,
 			           'contact_link_url' => $contactLinkUrl,
 			           'contact_link_target' => $contactLinkTarget,
@@ -417,6 +439,12 @@
 	function get_region_halland_acf_page_contact_card_epost($id) {
 		return get_field('name_1000170', $id);
 	}
+
+	// Returnera Epost
+	function get_region_halland_acf_page_contact_card_telefon($id) {
+		return get_field('name_1000213', $id);
+	}
+
 
 	// Returnera Bild
 	function get_region_halland_acf_page_contact_card_image($id) {
