@@ -143,6 +143,9 @@ Telefon: {{get_region_halland_acf_page_contact_card_telefon($id)}}<br>
 
 ## Versionhistorik
 
+### 1.5.1
+- Korrigerat länk till licens-fil
+
 ### 1.5.0
 - Bifogat fil med licensmodell
 
