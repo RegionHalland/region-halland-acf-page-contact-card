@@ -12,10 +12,9 @@ Denna plugin skapar en posttyp med namn "Kontakter". Dessa kontakter kan man sed
 
 ## Licensmodell
 
-Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell på:
+Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell via den medföljande filen:
 ```sh
-A) Gnu.org (https://www.gnu.org/licenses/gpl-3.0.html)
-B) Wikipedia (https://sv.wikipedia.org/wiki/GNU_General_Public_License)
+LICENSE (https://github.com/RegionHalland/region-halland-acf-page-contact-card/blob/master/LICENSE)
 ```
 
 
@@ -143,6 +142,9 @@ Telefon: {{get_region_halland_acf_page_contact_card_telefon($id)}}<br>
 
 
 ## Versionhistorik
+
+### 1.5.0
+- Bifogat fil med licensmodell
 
 ### 1.4.0
 - Uppdaterat med information om licensmodell
