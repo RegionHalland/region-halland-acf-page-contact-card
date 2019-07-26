@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Contact Card
 	Description: Skapar post_typen "kontakter", dvs "contact card" + visa dessa "contact cards" på en sida 
-	Version: 1.5.1
+	Version: 1.6.0
 	Author: Roland Hydén
 	License: GPL-3.0
 	Text Domain: regionhalland
@@ -359,6 +359,7 @@
 					// Kontakt-bild
 					$image_field_object = get_field('field_1000173', $postID);
 					$contactImageUrl = $image_field_object['url'];
+                    $contactImageAlt = $image_field_object['alt'];
 					$contactImageWidth = $image_field_object['width'];
 					$contactImageHeight = $image_field_object['height'];
 					if ($contactImageUrl) {
@@ -381,6 +382,7 @@
 			           'contact_link_url' => $contactLinkUrl,
 			           'contact_link_target' => $contactLinkTarget,
 			           'contact_image_url' => $contactImageUrl,
+                       'contact_image_alt' => $contactImageAlt,
 			           'contact_image_width' => $contactImageWidth,
 			           'contact_image_height' => $contactImageHeight,
 			           'contact_has_image' => $contactHasImage,
