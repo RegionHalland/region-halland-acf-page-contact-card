@@ -73,7 +73,7 @@ OBS! Justera så att du hämtar aktuell version.
     <span>{{ $data['contact_epost'] }}</span><br>
     <span>{{ $data['contact_telefon'] }}</span><br>
     @if($data['contact_has_image'])
-      <img src="{{ $data['contact_image_url'] }}" width="{{ $data['contact_image_width'] }}" height="{{ $data['contact_image_height'] }}"><br>
+      <img src="{{ $data['contact_image_url'] }}" width="{{ $data['contact_image_width'] }}" height="{{ $data['contact_image_height'] }}" height="{{ $data['contact_image_alt'] }}"><br>
     @endif
   @endforeach
 @endif
@@ -97,6 +97,7 @@ array (size=2)
       'contact_link_url' => string 'http://exempel.se/?show_profile=kallekula' (length=41)
       'contact_link_target' => string '' (length=0)
       'contact_image_url' => string 'http://exempel.se/app/uploads/2019/06/kalle_kula.jpg' (length=52)
+      'contact_image_alt' => string 'Kalle' (length=5)
       'contact_image_width' => int 96
       'contact_image_height' => int 88
       'contact_has_image' => int 1
@@ -113,6 +114,7 @@ array (size=2)
       'contact_link_url' => string 'http://exempel.se/?show_profile=nissenilsson' (length=44)
       'contact_link_target' => string '' (length=0)
       'contact_image_url' => string 'http://exempel.se/app/uploads/2019/06/nisse_nilsson.jpg' (length=55)
+      'contact_image_alt' => string 'Nisse' (length=5)
       'contact_image_width' => int 96
       'contact_image_height' => int 96
       'contact_has_image' => int 1
@@ -136,12 +138,15 @@ Telefon: {{get_region_halland_acf_page_contact_card_telefon($id)}}<br>
 
 @php($myImage = get_region_halland_acf_page_contact_card_image($id))
 @if($myImage['has-image'] == 1)
-  <img src="{{$myImage['image-url']}}" width="{{$myImage['image-width']}}" height="{{$myImage['image-height']}}">
+  <img src="{{$myImage['image-url']}}" width="{{$myImage['image-width']}}" height="{{$myImage['image-height']}}" alt="{{$myImage['image-alt']}}">
 @endif
 ```
 
 
 ## Versionhistorik
+
+### 1.6.0
+- Alt-text för bild + uppdaterad readme
 
 ### 1.5.1
 - Korrigerat länk till licens-fil

@@ -453,6 +453,7 @@
 		$image_field_object = get_field('field_1000173', $id);
 		$myImage = array();
 		$myImage['image-url'] = $image_field_object['url'];
+		$myImage['image-alt'] = $image_field_object['alt'];
 		$myImage['image-width'] = $image_field_object['width'];
 		$myImage['image-height'] = $image_field_object['height'];
 		if ($myImage['image-url']) {
